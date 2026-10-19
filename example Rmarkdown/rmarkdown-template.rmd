@@ -1,11 +1,12 @@
 ---
 title: "Layout presentations CPB"
 shorttitle: "Short title"
+event-type: "" # Set to "" to hide the event type and separator.
 author: "M. Kattenberg based on A. Schmidt CPB-style file following J. Tijm's template"
 disclaimer: "With a lot of help from Codex"
 date: '\today'
 footer: "M. Kattenberg, J. Tijm, A. Schmidt"
-cover: '`Images/nummers_vol.png`{=latex}' #change to  for default numbers: '`Images/cover_bg.png`{=latex}'
+cover: '`Images/nummers_vol.png`{=latex}' #change to fancy cover using: '`Images/cover_bg.png`{=latex}'
 output:
   beamer_presentation:
     latex_engine: pdflatex
@@ -13,7 +14,7 @@ output:
     keep_tex: true
     citation_package: natbib
     md_extensions: -implicit_figures
-    pandoc_args: ["--to=latex", "--lua-filter=cpb-split.lua", "--lua-filter=cpb-slides.lua"]
+    pandoc_args: ["--to=latex", "--lua-filter=cpb-blocks.lua", "--lua-filter=cpb-split.lua", "--lua-filter=cpb-slides.lua"]
 ---
 
 <!--
@@ -30,12 +31,15 @@ Special heading attributes:
   The next ## ends the slide. See split-example.rmd for PDF and HTML examples.
   {layout="title"} / {layout="end"}: CPB opening / closing slide
   {layout="section" subtitle="Subtext"}: CPB section divider
-  {layout="agenda"}: CPB agenda with Markdown content
+  {layout="agenda" title="Agenda"}: CPB agenda with Markdown content.
+  The title argument overrides the heading; omit it to use the heading text.
   {.untitled}: hide the heading on an ordinary slide
   {.plain}: no decoration; {.noframenumbering}: do not count the slide
   {.fragile}: permit verbatim content
 
-A fenced Div with class .cpb-block and title="..." makes a CPB block.
+Use > [!BLOCK] Title to start a CPB block. Prefix each content line with >,
+including blank lines. An unquoted paragraph ends the block.
+The older fenced Div with class .cpb-block remains supported.
 Raw LaTeX is needed only for exact spacing and the original custom diagrams,
 table, cross-references, and navigation buttons.
 -->
@@ -46,9 +50,9 @@ table, cross-references, and navigation buttons.
 
 \vspace{1cm}
 
-::: {.cpb-block title="\centering Task"}
-\centering A block
-:::
+> [!BLOCK] \centering Task
+>
+> \centering A block
 
 \pause
 \vspace{1cm}
@@ -57,7 +61,7 @@ table, cross-references, and navigation buttons.
     - Bullet 1
     - \pause Bullet 2
 
-## Title {layout="agenda"}
+## Agenda {layout="agenda" title="Today's agenda"}
 
 - A list:
     - Bullet 1
@@ -177,15 +181,15 @@ table, cross-references, and navigation buttons.
 
 ## Closing remarks {.untitled}
 
-::: {.cpb-block title="What has been done $\ldots$"}
-- A Beamer template that follows CPB style
-:::
+> [!BLOCK] What has been done $\ldots$
+>
+> - An Rmarkdown Beamer template that follows CPB style
 
 \pause
 
-::: {.cpb-block title="What else? $\ldots$"}
-- You can develop this template further as you want
-:::
+> [!BLOCK] What else? $\ldots$
+>
+> - You can develop this template further as you want
 
 ## End {layout="end"}
 

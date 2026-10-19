@@ -55,7 +55,10 @@ function Pandoc(doc)
     elseif kind == 'section' then
       result = '\\cpbsectie{' .. title .. '}{' .. (heading.attributes.subtitle or '') .. '}'
     elseif kind == 'agenda' then
-      result = '\\cpbinhoudframe{' .. body .. '}'
+      if heading.attributes.title then
+        title = text({pandoc.Str(heading.attributes.title)})
+      end
+      result = '\\cpbinhoudframe[{' .. title .. '}]{' .. body .. '}'
     else
       local options = {}
       for _, option in ipairs({'plain', 'fragile', 'noframenumbering'}) do

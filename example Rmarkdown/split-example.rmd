@@ -1,6 +1,7 @@
 ---
 title: "Two-column slides"
 shorttitle: "Two columns"
+event-type: "Event type" # Set to "" to hide the event type and separator.
 author: "CPB"
 date: '\today'
 footer: "CPB"
@@ -10,11 +11,11 @@ output:
     template: cpb-rmarkdown-template.tex
     keep_tex: true
     md_extensions: -implicit_figures
-    pandoc_args: ["--to=latex", "--lua-filter=cpb-split.lua", "--lua-filter=cpb-slides.lua"]
+    pandoc_args: ["--to=latex", "--lua-filter=cpb-blocks.lua", "--lua-filter=cpb-split.lua", "--lua-filter=cpb-slides.lua"]
   slidy_presentation:
     slide_level: 2
     self_contained: true
-    pandoc_args: ["--lua-filter=cpb-split.lua"]
+    pandoc_args: ["--lua-filter=cpb-blocks.lua", "--lua-filter=cpb-split.lua"]
 ---
 
 <!--
@@ -46,3 +47,12 @@ HTML uses the selected HTML theme; the CPB .sty applies to PDF only.
 
 - Back to a normal full-width slide.
 - Start another two-column slide by adding `{.split}` to its heading.
+
+## A block
+
+> [!BLOCK] Task
+>
+> - First point
+> - Second point with **bold text**
+
+This text is outside the block.
