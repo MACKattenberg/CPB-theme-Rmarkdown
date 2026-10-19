@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.24)  19 OCT 2026 16:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.24)  19 OCT 2026 21:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1347,16 +1347,16 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 (rmarkdown-template.nav)
 Package babel Info: Main language set to 'english'.
-<../Images/cover_bg.png, id=18, 1678.27pt x 944.52875pt>
-File: ../Images/cover_bg.png Graphic file (type png)
-<use ../Images/cover_bg.png>
-Package pdftex.def Info: ../Images/cover_bg.png  used on input line 42.
-(pdftex.def)             Requested size: 455.00836pt x 256.0748pt.
-File: ../Images/cover_bg.png Graphic file (type png)
-<use ../Images/cover_bg.png>
-Package pdftex.def Info: ../Images/cover_bg.png  used on input line 42.
-(pdftex.def)             Requested size: 455.00836pt x 256.0748pt.
-<../Images/rijkslogo.png, id=19, 501.875pt x 1003.75pt>
+<../Images/nummers_vol.png, id=18, 445.665pt x 266.49562pt>
+File: ../Images/nummers_vol.png Graphic file (type png)
+<use ../Images/nummers_vol.png>
+Package pdftex.def Info: ../Images/nummers_vol.png  used on input line 42.
+(pdftex.def)             Requested size: 428.27556pt x 256.0748pt.
+File: ../Images/nummers_vol.png Graphic file (type png)
+<use ../Images/nummers_vol.png>
+Package pdftex.def Info: ../Images/nummers_vol.png  used on input line 42.
+(pdftex.def)             Requested size: 428.27556pt x 256.0748pt.
+<../Images/rijkslogo.png, id=20, 501.875pt x 1003.75pt>
 File: ../Images/rijkslogo.png Graphic file (type png)
 <use ../Images/rijkslogo.png>
 Package pdftex.def Info: ../Images/rijkslogo.png  used on input line 42.
@@ -1373,11 +1373,11 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {C:/Users/markk/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/mark
-k/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <../Images/cover_b
-g.png (PNG copy)> <../Images/rijkslogo.png>] [2
+k/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <../Images/nummers
+_vol.png> <../Images/rijkslogo.png>] [2
 
 ]
-<../Images/numbersbackground.png, id=52, 1445.4pt x 813.0375pt>
+<../Images/numbersbackground.png, id=54, 1445.4pt x 813.0375pt>
 File: ../Images/numbersbackground.png Graphic file (type png)
 <use ../Images/numbersbackground.png>
 Package pdftex.def Info: ../Images/numbersbackground.png  used on input line 79
@@ -1394,7 +1394,7 @@ Package pdftex.def Info: ../Images/numbersbackground.png  used on input line 81
 [4
 
 ]
-<../Figures/SHAP2.png, id=72, 2180.145pt x 726.715pt>
+<../Figures/SHAP2.png, id=73, 2180.145pt x 726.715pt>
 File: ../Figures/SHAP2.png Graphic file (type png)
 <use ../Figures/SHAP2.png>
 Package pdftex.def Info: ../Figures/SHAP2.png  used on input line 113.
@@ -1420,30 +1420,44 @@ Package pdftex.def Info: ../Images/numbersbackground.png  used on input line 19
 [8
 
 ]
-\openout4 = `rmarkdown-template.vrb'.
-
-(rmarkdown-template.vrb) [9
-
-] [10
+File: ../Figures/SHAP2.png Graphic file (type png)
+<use ../Figures/SHAP2.png>
+Package pdftex.def Info: ../Figures/SHAP2.png  used on input line 220.
+(pdftex.def)             Requested size: 191.18137pt x 63.72711pt.
+[9
 
 ]
-<../Images/nummers_vol.png, id=158, 445.665pt x 266.49562pt>
+File: ../Images/numbersbackground.png Graphic file (type png)
+<use ../Images/numbersbackground.png>
+Package pdftex.def Info: ../Images/numbersbackground.png  used on input line 22
+2.
+(pdftex.def)             Requested size: 455.23724pt x 256.0748pt.
+[10
+
+]
+\openout4 = `rmarkdown-template.vrb'.
+
+(rmarkdown-template.vrb) [11
+
+] [12
+
+]
 File: ../Images/nummers_vol.png Graphic file (type png)
 <use ../Images/nummers_vol.png>
-Package pdftex.def Info: ../Images/nummers_vol.png  used on input line 234.
+Package pdftex.def Info: ../Images/nummers_vol.png  used on input line 258.
 (pdftex.def)             Requested size: 428.27556pt x 256.0748pt.
 File: ../Images/rijkslogo.png Graphic file (type png)
 <use ../Images/rijkslogo.png>
-Package pdftex.def Info: ../Images/rijkslogo.png  used on input line 234.
+Package pdftex.def Info: ../Images/rijkslogo.png  used on input line 258.
 (pdftex.def)             Requested size: 25.60063pt x 51.21504pt.
-[11
+[13
 
- <../Images/nummers_vol.png>] [12
+] [14
 
 ] (rmarkdown-template.bbl
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10.95> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 5.
-) [13
+) [15
 
 ]
 \tf@nav=\write6
@@ -1464,10 +1478,10 @@ Package rerunfilecheck Info: File `rmarkdown-template.out' has not changed.
 (rerunfilecheck)             Checksum: AEA4B6A8AE45636C75679C2F0DFA4493;93.
  ) 
 Here is how much of TeX's memory you used:
- 41165 strings out of 467501
- 958787 string characters out of 5408550
- 1448256 words of memory out of 5000000
- 69556 multiletter control sequences out of 15000+600000
+ 41188 strings out of 467501
+ 959220 string characters out of 5408550
+ 1448546 words of memory out of 5000000
+ 69574 multiletter control sequences out of 15000+600000
  701020 words of font info for 137 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,17n,131p,741b,987s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1479,9 +1493,9 @@ amsfonts/cm/cmmi12.pfb><C:/Users/markk/AppData/Local/Programs/MiKTeX/fonts/type
 onts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/markk/AppData/Local/Programs/MiKTe
 X/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/markk/AppData/Local/Programs/Mi
 KTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on rmarkdown-template.pdf (13 pages, 3123109 bytes).
+Output written on rmarkdown-template.pdf (15 pages, 1799161 bytes).
 PDF statistics:
- 268 PDF objects out of 1000 (max. 8388607)
- 41 named destinations out of 1000 (max. 500000)
- 190 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 282 PDF objects out of 1000 (max. 8388607)
+ 46 named destinations out of 1000 (max. 500000)
+ 185 words of extra memory for PDF output out of 10000 (max. 10000000)
 

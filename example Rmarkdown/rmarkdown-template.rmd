@@ -4,8 +4,8 @@ shorttitle: "Short title"
 author: "M. Kattenberg based on A. Schmidt CPB-style file following J. Tijm's template"
 disclaimer: "With a lot of help from Codex"
 date: '\today'
-footer: "J. Tijm, A. Schmidt"
-cover: '`Images/cover_bg.png`{=latex}'
+footer: "M. Kattenberg, J. Tijm, A. Schmidt"
+cover: '`Images/nummers_vol.png`{=latex}' #change to  for default numbers: '`Images/cover_bg.png`{=latex}'
 output:
   beamer_presentation:
     latex_engine: pdflatex
@@ -13,7 +13,7 @@ output:
     keep_tex: true
     citation_package: natbib
     md_extensions: -implicit_figures
-    pandoc_args: ["--to=latex", "--lua-filter=cpb-slides.lua"]
+    pandoc_args: ["--to=latex", "--lua-filter=cpb-split.lua", "--lua-filter=cpb-slides.lua"]
 ---
 
 <!--
@@ -26,6 +26,8 @@ The companion template and Lua filter reuse ../cpb-beamer.sty and preserve
 its layouts. Keep both companion files beside this Rmd.
 
 Special heading attributes:
+  {.split}: two columns; put the right-column divider on its own line.
+  The next ## ends the slide. See split-example.rmd for PDF and HTML examples.
   {layout="title"} / {layout="end"}: CPB opening / closing slide
   {layout="section" subtitle="Subtext"}: CPB section divider
   {layout="agenda"}: CPB agenda with Markdown content
@@ -153,6 +155,17 @@ table, cross-references, and navigation buttons.
 ```
 
 **Note:** You can also add a footnote to add information about your figure or table.
+
+## Split slides into two {layout="section"}
+
+## you can split a slide in two {.split}
+
+- First point
+- Second point
+
+<!-- right -->
+
+![](../Figures/SHAP2.png)
 
 ## Another section {layout="section" subtitle="Subtext"}
 

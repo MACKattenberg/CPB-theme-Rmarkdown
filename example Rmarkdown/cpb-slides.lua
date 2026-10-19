@@ -1,5 +1,6 @@
 -- Convert Markdown slide headings to the original CPB frame layouts.
 -- Use the LaTeX writer for each slide body to avoid Pandoc's Beamer defaults.
+if not (FORMAT:match('latex') or FORMAT:match('beamer')) then return {} end
 local function latex(blocks)
   local result = pandoc.write(pandoc.Pandoc(blocks), 'latex', {wrap_text = 'none'})
   -- A paragraph before a nested list adds space absent from the CPB source.
@@ -59,6 +60,9 @@ function Pandoc(doc)
       local options = {}
       for _, option in ipairs({'plain', 'fragile', 'noframenumbering'}) do
         if has(heading, option) then table.insert(options, option) end
+      end
+      if body:find('\\verb', 1, true) and not has(heading, 'fragile') then
+        table.insert(options, 'fragile')
       end
       if heading.attributes.allowframebreaks then
         table.insert(options, 'allowframebreaks=' .. heading.attributes.allowframebreaks)

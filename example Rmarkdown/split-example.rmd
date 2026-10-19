@@ -1,0 +1,48 @@
+---
+title: "Two-column slides"
+shorttitle: "Two columns"
+author: "CPB"
+date: '\today'
+footer: "CPB"
+output:
+  beamer_presentation:
+    latex_engine: pdflatex
+    template: cpb-rmarkdown-template.tex
+    keep_tex: true
+    md_extensions: -implicit_figures
+    pandoc_args: ["--to=latex", "--lua-filter=cpb-split.lua", "--lua-filter=cpb-slides.lua"]
+  slidy_presentation:
+    slide_level: 2
+    self_contained: true
+    pandoc_args: ["--lua-filter=cpb-split.lua"]
+---
+
+<!--
+Choose Knit to PDF or Knit to Slidy in RStudio's Knit menu.
+To render both from the repository root:
+rmarkdown::render("example Rmarkdown/split-example.rmd", output_format = "all")
+
+Add {.split} to a slide heading. Write the left column, add the divider
+on its own line with blank lines around it, then write the right column.
+The next ## heading ends both columns. No closing markers are needed.
+Both sides accept ordinary Markdown and R chunk output.
+
+For another HTML format, such as Reveal.js, include
+--lua-filter=cpb-split.lua in that output's pandoc_args too.
+HTML uses the selected HTML theme; the CPB .sty applies to PDF only.
+-->
+
+## My slide {.split}
+
+- First point
+- Second point
+    - A nested point
+
+<!-- right -->
+
+![Example figure](../Figures/SHAP2.png)
+
+## Another slide
+
+- Back to a normal full-width slide.
+- Start another two-column slide by adding `{.split}` to its heading.
