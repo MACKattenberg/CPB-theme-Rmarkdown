@@ -1,0 +1,525 @@
+% CPB Beamer style, extracted from the original template.
+% Original layout: Joep Tijm and Opus4.6; template adapted by A. Schmidt.
+% Keep the Images folder beside the main .tex file.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cpb-beamer}[2026/10/19 CPB Beamer presentation style]
+\RequirePackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+\RequirePackage{etoolbox}
+% Beamer already loads xcolor and hyperref.
+\setbeamertemplate{caption}[numbered]
+\usetikzlibrary{arrows.meta}
+
+% ---------- ACHTERGRONDAFBEELDING NUMMERS TITEL EN EINDSLIDE (geclipte versies)-------------------------
+% Links 7cm breed: toon linkerhelft van afbeelding op ware verhoudingen
+\newcommand{\cpbnummersbgleft}[1]{%
+  \begin{scope}
+    \clip (current page.north west)
+      rectangle ([xshift=#1]current page.south west);
+    \node[anchor=north west, inner sep=0pt]
+      at (current page.north west)
+      {\includegraphics[height=\paperheight]{\cpbtitelafbeeldingpad}};
+  \end{scope}%
+}
+
+% Rechts 8cm breed: toon rechterhelft van afbeelding op ware verhoudingen
+\newcommand{\cpbnummersbgright}[1]{%
+  \begin{scope}
+    \clip ([xshift=-#1]current page.north east)
+      rectangle (current page.south east);
+    \node[anchor=north east, inner sep=0pt]
+      at (current page.north east)
+      {\includegraphics[height=\paperheight]{\cpbtitelafbeeldingpad}};
+  \end{scope}%
+}
+
+% Links 7cm breed: toon linkerhelft van afbeelding op ware verhoudingen
+% voor de middle slides
+\newcommand{\cpbnummersbgleftmiddle}[1]{%  #1 = breedte
+  \begin{scope}
+    \clip (current page.north west) rectangle ([xshift=#1]current page.south west);
+    \node[anchor=north west, inner sep=0pt]
+      at (current page.north west)
+      {\includegraphics[height=\paperheight]{Images/numbersbackground.png}};
+  \end{scope}%
+}
+
+% Toevoeg auteurs en jaar in he regular slides
+\newcommand{\cpbfootertext}{}
+\newcommand{\cpbfooter}[1]{\renewcommand{\cpbfootertext}{#1 (\the\year)\enspace|\enspace\insertshorttitle}}
+
+
+% --------------------- Disclaimer
+\newcommand{\cpbdisclaimer}{}
+\newcommand{\disclaimer}[1]{\renewcommand{\cpbdisclaimer}{#1}}
+
+% ---------- KLEUREN ----------------------------------------------------------
+\definecolor{cpbMagenta}{HTML}{E5007D}
+\definecolor{cpbLichtblauw}{HTML}{00A5FF}
+\definecolor{cpbBulletblauw}{HTML}{7EC8E3}
+\definecolor{cpbDonkerblauw}{HTML}{154273}
+\definecolor{cpbDonkerpaars}{HTML}{4A1942}
+\definecolor{cpbHemelsblauw}{HTML}{66C9FF}
+\definecolor{cpbTiteltekst}{HTML}{820050}
+\definecolor{cpbCijferblauw}{HTML}{DAEDF7}
+\definecolor{cpbDonkergrijs}{HTML}{333333}
+\definecolor{cpbGrijs}{HTML}{666666}
+\definecolor{cpbLightGray}{HTML}{F0F0F0}  % Table/figure placeholder shading
+\definecolor{cpbRowPink}{HTML}{FADBE5}    % Table: darker pink row
+\definecolor{cpbRowLight}{HTML}{FCEDF3}   % Table: lighter pink row
+
+% ---------- BEAMER -----------------------------------------------------------
+\usetheme{default}
+\usecolortheme{default}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{structure}{fg=cpbMagenta}
+\setbeamercolor{normal text}{fg=cpbDonkergrijs}
+\setbeamertemplate{itemize item}{\color{cpbLichtblauw}{\small$\bullet$}}
+\setbeamertemplate{itemize subitem}{\color{cpbLichtblauw}{\small$\circ$}}
+\setbeamertemplate{itemize subsubitem}{\color{cpbLichtblauw}{\small$\bullet$}}
+\setbeamercolor{enumerate item}{fg=cpbMagenta}
+\setbeamerfont{frametitle}{size=\normalsize, series=\bfseries}
+\setbeamercolor{frametitle}{fg=cpbDonkerpaars}
+\setbeamertemplate{blocks}[rounded][shadow = true]
+\setbeamercolor{block title}{bg=cpbMagenta, fg = cpbLichtblauw!10}
+\setbeamercolor{block body}{bg=cpbLichtblauw!10}
+
+% Nummering: titelslide telt niet mee, inhoudslide = 2
+\addtocounter{framenumber}{1}
+
+% ---------- TITELAFBEELDING (optioneel) --------------------------------------
+% Standaard: numbersbackground.png met het magenta vlak.
+% De gekozen foto wordt gebruikt op de titel- en eindslide.
+% Gebruiker kan een afbeelding instellen met:
+%   \cpbtitelafbeelding{mijnfoto.jpg}
+% Resetten (terug naar placeholder) met:
+%   \cpbtitelafbeelding{}
+\newif\ifcpbheeftafbeelding
+\cpbheeftafbeeldingfalse
+\newcommand{\cpbtitelafbeeldingpad}{Images/cover_bg.png}
+\newcommand{\cpbtitelafbeelding}[1]{%
+  \if\relax\detokenize{#1}\relax
+    \renewcommand{\cpbtitelafbeeldingpad}{Images/cover_bg.png}%
+    \cpbheeftafbeeldingfalse
+  \else
+    \renewcommand{\cpbtitelafbeeldingpad}{#1}%
+    \cpbheeftafbeeldingtrue
+  \fi
+}
+
+% Helper: teken de gebruikersafbeelding als die is ingesteld
+% De afbeelding wordt op hoogte geschaald (behoudt verhoudingen).
+% De clip op 8cm breed snijdt te brede afbeeldingen symmetrisch af
+% vanuit het midden.
+\newcommand{\cpbtekentitelafbeelding}{%
+	\ifcpbheeftafbeelding
+	\begin{scope}
+		\clip (current page.north west) rectangle
+		([xshift=8cm]current page.south west);
+		\node[anchor=center, inner sep=0pt]
+		at ([xshift=4cm]current page.west)
+		{\includegraphics[height=\paperheight]{\cpbtitelafbeeldingpad}};
+	\end{scope}
+	\fi
+}
+
+% ============================================================================
+% ZIGZAG TEKENMACRO
+% ============================================================================
+% Eén zigzag: dal-piek (omlaag dan omhoog).
+% #1 = x-positie van het midden van de zigzag (als xshift)
+% #2 = y-positie van de basislijn (als yshift)
+% #3 = halve breedte van de zigzag
+% #4 = diepte van het dal (positief getal, wordt afgetrokken)
+% #5 = hoogte van de piek (positief getal, wordt opgeteld)
+%
+% Gebruik: \cpbzigzag{8cm}{-1.05cm}{0.8cm}{0.65cm}{0.75cm}
+%          tekent zigzag gecentreerd op x=8cm, lijn op y=-1.05cm
+
+% ============================================================================
+% HERBRUIKBARE ELEMENTEN
+% ============================================================================
+
+% Toplijn contentslides: zigzag op 50% (=8cm bij 16cm breed)
+\newcommand{\cpbtoplijn}{
+  \begin{tikzpicture}[remember picture, overlay]
+    \draw[cpbMagenta, line width=2.2pt]
+      ([yshift=-0.75cm]current page.north west)
+      -- ([yshift=-0.75cm, xshift=7.6cm]current page.north west)
+      -- ([yshift=-1.08cm, xshift=7.8cm]current page.north west)    % dal
+      -- ([yshift=-0.45cm, xshift=8.2cm]current page.north west)    % piek
+      -- ([yshift=-0.75cm, xshift=8.4cm]current page.north west)    % terug
+      -- ([yshift=-0.75cm]current page.north east);
+    \node[anchor=north west, font=\fontsize{13}{15}\selectfont\bfseries,
+          text=cpbMagenta]
+      at ([xshift=0.55cm, yshift=-0.1cm]current page.north west) {CPB};
+  \end{tikzpicture}
+}
+
+% Footer
+\newcommand{\cpbfooterlijn}{
+  \begin{tikzpicture}[remember picture, overlay]
+    \draw[cpbMagenta, line width=2.2pt]
+      ([yshift=0.6cm]current page.south west)
+      -- ([yshift=0.6cm]current page.south east);
+    \node[anchor=south east, font=\fontsize{8}{10}\selectfont, text=cpbMagenta]
+      at ([xshift=-0.55cm, yshift=0.05cm]current page.south east) {|\enspace\insertframenumber};
+  \end{tikzpicture}
+}
+
+% ============================================================================
+% TYPE 1: TITELSLIDE — zigzag op 25% (=4cm)
+% ============================================================================
+\newcommand{\cpbtitelframe}{
+  \begin{frame}[plain,noframenumbering]
+    \begin{tikzpicture}[remember picture, overlay]
+      % Linkerhelft: cijfermatrix-achtergrond (8cm breed, ware verhoudingen)
+      \cpbnummersbgleft{8cm}
+
+      % Optionele gebruikersafbeelding over de linkerhelft (boven de numbers,
+	   % maar ONDER het rijkslogo — dat wordt later getekend)
+	   \cpbtekentitelafbeelding
+
+      % Magenta vlak linksonder — zigzag op 25% (=4cm), horizontaal daarna
+      \fill[cpbMagenta]
+        ([yshift=4.2cm]current page.south west)                     % start links
+        -- ([xshift=3.55cm, yshift=4.2cm]current page.south west)   % horizontaal
+        -- ([xshift=3.90cm, yshift=3.7cm]current page.south west)   % dal
+        -- ([xshift=4.40cm, yshift=4.7cm]current page.south west)   % piek
+        -- ([xshift=4.75cm, yshift=4.2cm]current page.south west)   % terug
+        -- ([xshift=8cm, yshift=4.2cm]current page.south west)      % horizontaal naar rand
+        -- ([xshift=8cm]current page.south west)                    % rechtsonder
+        -- (current page.south west) -- cycle;
+
+      % Rijkslogo flush tegen bovenkant (BOVEN de afbeelding)
+      \node[anchor=north, inner sep=0pt]
+        at (current page.north)
+        {\includegraphics[height=1.8cm]{Images/rijkslogo.png}};
+
+      % Tekst rechterhelft
+      \node[anchor=north west, font=\fontsize{8.5}{11}\selectfont, text=cpbDonkergrijs]
+        at ([xshift=8.8cm, yshift=-0.6cm]current page.north west)
+        {Centraal Planbureau\enspace|\enspace Event type};
+
+      % Titel
+	  \node[anchor=north west, inner sep=0pt]
+		at ([xshift=8.8cm, yshift=-1.5cm]current page.north west)
+		{\parbox{7cm}{\raggedright\fontsize{20}{25}\selectfont\bfseries\color{cpbMagenta}\inserttitle}};
+
+      % Auteur
+      \node[anchor=south west, text width=7cm, align=flush left]
+        at ([xshift=8.8cm, yshift=2.3cm]current page.south west)
+        {{\normalsize\color{cpbMagenta}\insertauthor\par}};         
+
+      % Datum
+      \node[anchor=south west, text width=7cm, align=flush left]
+        at ([xshift=8.8cm, yshift=1.5cm]current page.south west)
+        {{\small\color{cpbMagenta}\insertdate}};
+
+      % URL
+      \node[anchor=south west, text width=7cm, align=flush left]
+        at ([xshift=8.8cm, yshift=1.1cm]current page.south west)
+        {{\small\color{cpbMagenta}www.cpb.nl\enspace|\enspace @CPBnl}};
+
+      % Disclaimer
+      \node[anchor=south west, text width=7cm, align=flush left]
+        at ([xshift=8.8cm, yshift=0.2cm]current page.south west)
+        {{\fontsize{5.3}{6}\selectfont\color{cpbDonkerpaars}
+        \cpbdisclaimer\par}};        
+        
+    \end{tikzpicture}
+  \end{frame}
+}
+
+% ============================================================================
+% TYPE 2: INHOUDSLIDE — zigzag op 50%
+% ============================================================================
+\newcommand{\cpbinhoudframe}[1]{
+  \begin{frame}[plain]
+    \begin{tikzpicture}[remember picture, overlay]
+      % Cijfermatrix-achtergrond links (7cm breed, ware verhoudingen)
+      \cpbnummersbgleftmiddle{7cm}
+      \node[anchor=west, font=\fontsize{24}{48}\selectfont\bfseries,
+            text=cpbLichtblauw]
+        at ([xshift=0.3cm]current page.west) {Title};
+
+      \node[anchor=north west, text width=7cm, align=flush left]
+        at ([xshift=7.8cm, yshift=-0.8cm]current page.north west) {#1};
+
+    \end{tikzpicture}
+	\cpbtoplijn
+	\cpbfooterlijn
+  \end{frame}
+}
+
+% ============================================================================
+% TYPE 3: CONTENT SLIDES
+% ============================================================================
+\setbeamertemplate{frametitle}{
+	\vspace*{4ex}
+	\usebeamerfont{frametitle}\insertframetitle\vspace*{-2ex}}
+\setbeamertemplate{headline}{\cpbtoplijn}
+\setbeamertemplate{footline}{\cpbfooterlijn
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[
+      anchor=south west,
+      inner sep=0pt,
+      font=\fontsize{8}{10}\selectfont,
+      text=cpbMagenta
+    ]
+    at ([xshift=0.55cm, yshift=0.12cm]current page.south west)
+    {\cpbfootertext};
+  \end{tikzpicture}}
+
+% ============================================================================
+% TYPE 4: SECTIONSLIDE — zigzag op 50%
+% ============================================================================
+\newcommand{\cpbsectie}[2]{
+  \begin{frame}[plain]
+    \begin{tikzpicture}[remember picture, overlay]
+      % Cijfermatrix-achtergrond links (7cm breed, ware verhoudingen)
+      \cpbnummersbgleftmiddle{7cm}
+
+      % Titel gecentreerd op de slide
+      \node[anchor=center,
+            font=\fontsize{40}{48}\selectfont\mdseries, text=cpbHemelsblauw]
+        at ([yshift=0.0cm]current page.center) {#1};
+
+		% Subtitel gecentreerd onder de zigzag
+		\node[anchor=center,
+		font=\normalsize, text=cpbGrijs]
+		at ([yshift=-1.5cm]current page.center) {#2};
+    \end{tikzpicture}
+	\cpbtoplijn%
+	\cpbfooterlijn\vskip1.0cm
+  \end{frame}
+}
+
+% ============================================================================
+% TYPE 5: EINDSLIDE — zigzag op 75% (=12cm)
+% ============================================================================
+\newcommand{\cpbeindframe}{
+  \begin{frame}[plain,noframenumbering]
+    \begin{tikzpicture}[remember picture, overlay]
+      % Cijfermatrix rechterhelft: afbeelding start op 50% van slide, geclipt
+      \begin{scope}
+        \clip ([xshift=8cm]current page.north west) rectangle (current page.south east);
+        \node[anchor=north west, inner sep=0pt]
+          at ([xshift=8cm]current page.north west)
+          {\includegraphics[height=\paperheight]{Images/nummers_vol.png}};
+      \end{scope}
+
+      % Rijkslogo flush tegen bovenkant
+      \node[anchor=north, inner sep=0pt]
+        at (current page.north)
+        {\includegraphics[height=1.8cm]{Images/rijkslogo.png}};
+
+      % Magenta vlak rechts onder — één zigzag op 75% (=12cm)
+      % Vlak loopt HORIZONTAAL naar rechterrand op dezelfde hoogte
+      \fill[cpbMagenta]
+        ([xshift=8cm, yshift=3.8cm]current page.south west)         % start links
+        -- ([xshift=11.55cm, yshift=3.8cm]current page.south west)  % horizontaal
+        -- ([xshift=11.90cm, yshift=4.3cm]current page.south west)  % piek
+        -- ([xshift=12.40cm, yshift=3.3cm]current page.south west)  % dal
+        -- ([xshift=12.75cm, yshift=3.8cm]current page.south west)  % terug
+        -- ([yshift=3.8cm]current page.south east)                   % horizontaal naar rechterrand
+        -- (current page.south east)                                 % rechtsonder
+        -- ([xshift=8cm]current page.south west)                     % linksonder
+        -- cycle;
+
+      % "Centraal Planbureau" in magenta
+      \node[anchor=west, text width=7cm, align=flush left]
+        at ([xshift=0.8cm, yshift=0.3cm]current page.west)
+        {{\fontsize{30}{36}\selectfont\bfseries\color{cpbMagenta}
+          Centraal\\[12pt]Planbureau}};
+
+      % URL
+      \node[anchor=west, font=\normalsize, text=cpbMagenta]
+        at ([xshift=0.8cm, yshift=-2.2cm]current page.west)
+        {www.cpb.nl\enspace|\enspace @CPBnl};
+    \end{tikzpicture}
+  \end{frame}
+}
+
+\newcommand{\bron}[1]{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=south east, font=\fontsize{6}{8}\selectfont, text=cpbDonkergrijs]
+      at ([xshift=-0.6cm, yshift=1.15cm]current page.south east) {Bron: #1};
+  \end{tikzpicture}}
+
+% ============================================================================
+% Navigation buttons
+% ============================================================================
+
+% Usage: \cpbbutton{destination}{text}{position}
+% Positions: inline, bottom left, bottom right
+\newcommand{\cpbbutton}[3]{%
+    \ifstrequal{#3}{inline}{%
+        \hyperlink{#1}{\beamerbutton{#2}}%
+    }{%
+        \ifstrequal{#3}{bottom left}{%
+            \begin{tikzpicture}[remember picture, overlay]
+                \node[anchor=south west, inner sep=0pt]
+                    at ([xshift=0.5cm,yshift=0.7cm]current page.south west)
+                    {\hyperlink{#1}{\beamerbutton{#2}}};
+            \end{tikzpicture}%
+        }{%
+            \ifstrequal{#3}{bottom right}{%
+                \begin{tikzpicture}[remember picture, overlay]
+                    \node[anchor=south east, inner sep=0pt]
+                        at ([xshift=-0.5cm,yshift=0.7cm]current page.south east)
+                        {\hyperlink{#1}{\beamerbutton{#2}}};
+                \end{tikzpicture}%
+            }{%
+                \PackageError{cpb}{Unknown button position '#3'}%
+                    {Use inline, bottom left, or bottom right.}%
+            }%
+        }%
+    }%
+}
+
+
+% ============================================================================
+% Horizontal diagrams
+% ============================================================================
+
+% Internal counter
+\newcount\cpbdiagramcount
+
+% Usage:
+% \cpbdiagram{blue or magenta}{number of boxes}{
+%   \cpbdiagramitem{Title}{Text}{Footnote}
+%   ...
+% }
+
+\newcommand{\cpbdiagram}[3]{%
+  \begingroup
+  \ifnum#2<1\relax
+    \PackageError{cpb-beamer}
+      {A diagram needs at least 1 box}
+      {Choose a number from 1 to 4.}%
+  \else
+    \ifnum#2>4\relax
+      \PackageError{cpb-beamer}
+        {A diagram supports at most 4 boxes}
+        {Choose a number from 1 to 4.}%
+    \else
+      % Colour scheme
+      \ifstrequal{#1}{blue}{%
+        \colorlet{cpbDiagramMain}{cpbDonkerblauw}%
+        \colorlet{cpbDiagramLight}{cpbCijferblauw}%
+      }{%
+        \ifstrequal{#1}{magenta}{%
+          \colorlet{cpbDiagramMain}{cpbMagenta}%
+          \colorlet{cpbDiagramLight}{cpbMagenta!18!white}%
+        }{%
+          \PackageError{cpb-beamer}
+            {Unknown diagram colour scheme '#1'}
+            {Use blue or magenta.}%
+          \colorlet{cpbDiagramMain}{cpbDonkerblauw}%
+          \colorlet{cpbDiagramLight}{cpbCijferblauw}%
+        }%
+      }%
+
+      % Dimensions, expressed in centimetres
+      \pgfmathsetmacro{\cpbDiagramWidth}
+        {(\linewidth-2pt)/1cm}%
+      \def\cpbDiagramGap{0.45}%
+      \pgfmathsetmacro{\cpbDiagramBoxWidth}
+        {(\cpbDiagramWidth-(#2-1)*\cpbDiagramGap)/#2}%
+
+      \cpbdiagramcount=0\relax
+
+      \begin{tikzpicture}[x=1cm,y=1cm]
+        #3
+
+        % Check that the supplied number matches the content
+        \ifnum\cpbdiagramcount=#2\relax
+        \else
+          \PackageError{cpb-beamer}
+            {Diagram box count does not match}
+            {Supply exactly #2 diagram items.}%
+        \fi
+
+        % Draw arrows after the boxes
+        \ifnum#2>1\relax
+          \foreach \i in {2,...,#2}{%
+            \pgfmathtruncatemacro{\previous}{\i-1}%
+            \draw[
+              cpbDiagramMain,
+              line width=3pt,
+              -{Latex[length=3mm,width=4mm]}
+            ]
+              (cpb-box-\previous-east)
+              -- (cpb-box-\i-west);
+          }%
+        \fi
+      \end{tikzpicture}%
+    \fi
+  \fi
+  \endgroup
+}
+
+\newcommand{\cpbdiagramitem}[3]{%
+  \advance\cpbdiagramcount by 1\relax
+  \edef\cpbDiagramIndex{\the\cpbdiagramcount}%
+
+  \pgfmathsetmacro{\cpbDiagramX}{%
+    (\cpbDiagramIndex-1)*
+    (\cpbDiagramBoxWidth+\cpbDiagramGap)%
+  }%
+
+  \begin{scope}[shift={(\cpbDiagramX,0)}]
+    % Rounded box with coloured header
+    \begin{scope}
+      \clip[rounded corners=7pt]
+        (0,0) rectangle (\cpbDiagramBoxWidth,2.8);
+
+      \fill[cpbDiagramLight]
+        (0,0) rectangle (\cpbDiagramBoxWidth,2.8);
+
+      \fill[cpbDiagramMain]
+        (0,1.95) rectangle (\cpbDiagramBoxWidth,2.8);
+    \end{scope}
+
+    % Title
+    \node[
+      text=white,
+      font=\small\bfseries,
+      align=center,
+      inner sep=0pt,
+      text width={(\cpbDiagramBoxWidth-0.24)*1cm}
+    ] at ({\cpbDiagramBoxWidth/2},2.375) {#1};
+
+    % Main text
+    \node[
+      text=black,
+      font=\small,
+      align=center,
+      inner sep=0pt,
+      text width={(\cpbDiagramBoxWidth-0.30)*1cm}
+    ] at ({\cpbDiagramBoxWidth/2},0.975) {#2};
+
+    % Footnote outside the box
+    \node[
+      anchor=north,
+      text=cpbDiagramMain,
+      font=\scriptsize\itshape,
+      align=center,
+      inner sep=0pt,
+      text width={\cpbDiagramBoxWidth*1cm}
+    ] at ({\cpbDiagramBoxWidth/2},-0.15) {#3};
+
+    % Arrow connection points
+    \coordinate (cpb-box-\cpbDiagramIndex-west)
+      at (0,1.15);
+    \coordinate (cpb-box-\cpbDiagramIndex-east)
+      at (\cpbDiagramBoxWidth,1.15);
+  \end{scope}%
+}
+
+
+\endinput

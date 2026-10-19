@@ -1,0 +1,19 @@
+\begin{tabular}{clcccc}
+\toprule
+\multicolumn{2}{c}{ } & \multicolumn{2}{c}{In sample} & \multicolumn{2}{c}{Test} \\
+\cmidrule(l{3pt}r{3pt}){3-4} \cmidrule(l{3pt}r{3pt}){5-6}
+Horizon & Model & 10 vars & 15 vars & 10 vars & 15 vars\\
+\midrule
+ & Elastic net & 1.35 & 1.23 & 3.81 & 3.32\\
+
+ & Lasso & 1.41 & 1.27 & 2.27 & 2.66\\
+
+\multirow{-3}{*}{\centering\arraybackslash 1} & Random forest & 1.00 & 0.94 & 2.91 & 3.27\\
+\cmidrule{1-6}
+ & Elastic net & 7.24 & 6.72 & 7.46 & 4.49\\
+
+ & Lasso & 7.56 & 5.70 & 8.77 & 2.94\\
+
+\multirow{-3}{*}{\centering\arraybackslash 6} & Random forest & 2.31 & 2.14 & 17.11 & 17.62\\
+\bottomrule
+\end{tabular}
