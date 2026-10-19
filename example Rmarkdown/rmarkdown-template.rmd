@@ -1,0 +1,190 @@
+---
+title: "Layout presentations CPB"
+shorttitle: "Short title"
+author: "M. Kattenberg based on A. Schmidt CPB-style file following J. Tijm's template"
+disclaimer: "With a lot of help from Codex"
+date: '\today'
+footer: "J. Tijm, A. Schmidt"
+cover: '`Images/cover_bg.png`{=latex}'
+output:
+  beamer_presentation:
+    latex_engine: pdflatex
+    template: cpb-rmarkdown-template.tex
+    keep_tex: true
+    citation_package: natbib
+    md_extensions: -implicit_figures
+    pandoc_args: ["--to=latex", "--lua-filter=cpb-slides.lua"]
+---
+
+<!--
+Knit in RStudio or run from the repository root:
+rmarkdown::render("example Rmarkdown/rmarkdown-template.rmd")
+
+Write a new slide with ## Title, and lists with - items (indent subitems
+by four spaces). Use **bold**, *italic*, math, images, and R chunks normally.
+The companion template and Lua filter reuse ../cpb-beamer.sty and preserve
+its layouts. Keep both companion files beside this Rmd.
+
+Special heading attributes:
+  {layout="title"} / {layout="end"}: CPB opening / closing slide
+  {layout="section" subtitle="Subtext"}: CPB section divider
+  {layout="agenda"}: CPB agenda with Markdown content
+  {.untitled}: hide the heading on an ordinary slide
+  {.plain}: no decoration; {.noframenumbering}: do not count the slide
+  {.fragile}: permit verbatim content
+
+A fenced Div with class .cpb-block and title="..." makes a CPB block.
+Raw LaTeX is needed only for exact spacing and the original custom diagrams,
+table, cross-references, and navigation buttons.
+-->
+
+## Opening {layout="title"}
+
+## Teaser {.untitled}
+
+\vspace{1cm}
+
+::: {.cpb-block title="\centering Task"}
+\centering A block
+:::
+
+\pause
+\vspace{1cm}
+
+- A list:
+    - Bullet 1
+    - \pause Bullet 2
+
+## Title {layout="agenda"}
+
+- A list:
+    - Bullet 1
+    - \pause Bullet 2
+
+## Section {layout="section"}
+
+## A title in the frame
+
+- References can be used using the references.bib file.
+    - You can cite \cite{lundberg2017} or \citep{lundberg2017}
+- We recommend adding the Figures in the Figures folder (you can also add subfolders if needed).
+    - Reference by using Figure \ref{fig:example_figure}
+    - If the figures and tables order change, the numbers are automatically updated.
+
+![Example of a Figure](../Figures/SHAP2.png){#fig:example_figure .cpb-figure scale="0.12"}
+
+## Custom LaTeX diagrams
+
+```{=latex}
+\vspace{1cm}
+
+  % Maximum 4 boxes
+  \begin{figure}
+    \centering
+    \resizebox{0.6\linewidth}{!}{%
+    \cpbdiagram{magenta}{4}{%
+      \cpbdiagramitem
+        {Box 1}
+        {Text 1}
+        {Caption 1}
+      \cpbdiagramitem
+        {Box 2}
+        {Text 2}
+        {Caption 2}
+      \cpbdiagramitem
+        {Box 3}
+        {Text 3}
+        {}
+      \cpbdiagramitem
+        {Box 4}
+        {Text 4}
+        {Caption 4}        
+    }}
+    \caption{Example of diagram made directly from the template}
+    \label{fig:example_diagram_magenta}
+  \end{figure}
+
+  \begin{figure}
+    \centering
+    \resizebox{0.6\linewidth}{!}{%
+    \cpbdiagram{blue}{3}{%
+      \cpbdiagramitem
+        {Box 1}
+        {Text 1}
+        {Caption 1}
+      \cpbdiagramitem
+        {Box 2}
+        {Text 2}
+        {Caption 2}
+      \cpbdiagramitem
+        {Box 3}
+        {Text 3}
+        {}      
+    }}
+    \caption{Example of a blue diagram made directly from the template}
+    \label{fig:example_diagram_blue}
+  \end{figure}
+```
+
+## Slide with table {.fragile}
+
+\scriptsize
+
+- You can add tables by creating a new file and adding it to the Tables folder
+- You can also make reference to the objects by using Table \ref{tab:example_table}. This can be done with `Table \ref{tab:example_table}`
+
+\pause
+
+```{=latex}
+\vspace{-0.5cm}
+\begin{table}[!ht]
+\begin{scriptsize}
+\centering
+\caption{Table example}
+\scriptsize
+\arrayrulecolor{cpbMagenta}
+\input{Tables/RMSE_Bijstand}
+\label{tab:example_table}
+\end{scriptsize}
+\end{table}
+\vspace{0.5em}
+\raggedright
+\scriptsize
+```
+
+**Note:** You can also add a footnote to add information about your figure or table.
+
+## Another section {layout="section" subtitle="Subtext"}
+
+## Plain slide {#slide:label_to_frame .plain .fragile .untitled}
+
+- You can have a slide without any decoration by using `\begin{frame}[plain]`when starting your new frame
+- You can also have navigation buttons by using `\cpbbutton{appendix:01}{Go to Appendix}{inline}` \cpbbutton{appendix:01}{Go to Appendix}{inline}
+- The position options are `inline, bottom left, bottom right`
+
+## Closing remarks {.untitled}
+
+::: {.cpb-block title="What has been done $\ldots$"}
+- A Beamer template that follows CPB style
+:::
+
+\pause
+
+::: {.cpb-block title="What else? $\ldots$"}
+- You can develop this template further as you want
+:::
+
+## End {layout="end"}
+
+## Appendix slide {#appendix:01 .noframenumbering}
+
+- You can use these Appendix slides to add extra information
+- Navigation can be done with buttons that link to other slides
+    - For that, you need to add labels to your slides such that the buttons have the right references
+
+\cpbbutton{slide:label_to_frame}{Back}{bottom right}
+
+## Bibliography {.noframenumbering allowframebreaks="0.75"}
+
+\bibliographystyle{agsm}
+\bibliography{../references}
