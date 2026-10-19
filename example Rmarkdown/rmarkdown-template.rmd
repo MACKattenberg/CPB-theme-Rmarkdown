@@ -14,7 +14,7 @@ output:
     keep_tex: true
     citation_package: natbib
     md_extensions: -implicit_figures
-    pandoc_args: ["--to=latex", "--lua-filter=cpb-blocks.lua", "--lua-filter=cpb-split.lua", "--lua-filter=cpb-slides.lua"]
+    pandoc_args: ["--to=latex", "--lua-filter=cpb-diagrams.lua", "--lua-filter=cpb-blocks.lua", "--lua-filter=cpb-split.lua", "--lua-filter=cpb-slides.lua"]
 ---
 
 <!--
@@ -40,7 +40,11 @@ Special heading attributes:
 Use > [!BLOCK] Title to start a CPB block. Prefix each content line with >,
 including blank lines. An unquoted paragraph ends the block.
 The older fenced Div with class .cpb-block remains supported.
-Raw LaTeX is needed only for exact spacing and the original custom diagrams,
+Diagram callouts use > [!DIAGRAM] magenta or blue, a three-column table,
+and an optional caption paragraph. Each row becomes a box (maximum four).
+The default width is 60%; append {width=80%} to change it.
+Add a label with {#fig:my-diagram width=60%} for cross-references.
+Raw LaTeX is needed only for exact spacing and the original
 table, cross-references, and navigation buttons.
 -->
 
@@ -79,58 +83,32 @@ table, cross-references, and navigation buttons.
 
 ![Example of a Figure](../Figures/SHAP2.png){#fig:example_figure .cpb-figure scale="0.12"}
 
-## Custom LaTeX diagrams
+## Custom Rmarkdown to LaTeX diagrams
 
-```{=latex}
 \vspace{1cm}
 
-  % Maximum 4 boxes
-  \begin{figure}
-    \centering
-    \resizebox{0.6\linewidth}{!}{%
-    \cpbdiagram{magenta}{4}{%
-      \cpbdiagramitem
-        {Box 1}
-        {Text 1}
-        {Caption 1}
-      \cpbdiagramitem
-        {Box 2}
-        {Text 2}
-        {Caption 2}
-      \cpbdiagramitem
-        {Box 3}
-        {Text 3}
-        {}
-      \cpbdiagramitem
-        {Box 4}
-        {Text 4}
-        {Caption 4}        
-    }}
-    \caption{Example of diagram made directly from the template}
-    \label{fig:example_diagram_magenta}
-  \end{figure}
+> [!DIAGRAM] magenta {#fig:example_diagram_magenta}
+>
+> | Box   | Text   | Caption   |
+> |-------|--------|-----------|
+> | Box 1 | Text 1 | Caption 1 |
+> | Box 2 | Text 2 | Caption 2 |
+> | Box 3 | Text 3 |           |
+> | Box 4 | Text 4 | Caption 4 |
+>
+> Example of diagram made directly from the template
 
-  \begin{figure}
-    \centering
-    \resizebox{0.6\linewidth}{!}{%
-    \cpbdiagram{blue}{3}{%
-      \cpbdiagramitem
-        {Box 1}
-        {Text 1}
-        {Caption 1}
-      \cpbdiagramitem
-        {Box 2}
-        {Text 2}
-        {Caption 2}
-      \cpbdiagramitem
-        {Box 3}
-        {Text 3}
-        {}      
-    }}
-    \caption{Example of a blue diagram made directly from the template}
-    \label{fig:example_diagram_blue}
-  \end{figure}
-```
+<!-- separate diagrams -->
+
+> [!DIAGRAM] blue {#fig:example_diagram_blue}
+>
+> | Box   | Text   | Caption   |
+> |-------|--------|-----------|
+> | Box 1 | Text 1 | Caption 1 |
+> | Box 2 | Text 2 | Caption 2 |
+> | Box 3 | Text 3 |           |
+>
+> Example of a blue diagram made directly from the template
 
 ## Slide with table {.fragile}
 

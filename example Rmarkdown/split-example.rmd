@@ -11,11 +11,11 @@ output:
     template: cpb-rmarkdown-template.tex
     keep_tex: true
     md_extensions: -implicit_figures
-    pandoc_args: ["--to=latex", "--lua-filter=cpb-blocks.lua", "--lua-filter=cpb-split.lua", "--lua-filter=cpb-slides.lua"]
+    pandoc_args: ["--to=latex", "--lua-filter=cpb-diagrams.lua", "--lua-filter=cpb-blocks.lua", "--lua-filter=cpb-split.lua", "--lua-filter=cpb-slides.lua"]
   slidy_presentation:
     slide_level: 2
     self_contained: true
-    pandoc_args: ["--lua-filter=cpb-blocks.lua", "--lua-filter=cpb-split.lua"]
+    pandoc_args: ["--lua-filter=cpb-diagrams.lua", "--lua-filter=cpb-blocks.lua", "--lua-filter=cpb-split.lua"]
 ---
 
 <!--
@@ -56,3 +56,15 @@ HTML uses the selected HTML theme; the CPB .sty applies to PDF only.
 > - Second point with **bold text**
 
 This text is outside the block.
+
+## A diagram
+
+> [!DIAGRAM] blue {width=80%}
+>
+> | Box   | Text   | Caption   |
+> |-------|--------|-----------|
+> | Box 1 | Text 1 | Caption 1 |
+> | Box 2 | Text 2 | Caption 2 |
+> | Box 3 | Text 3 |           |
+>
+> Example of a blue diagram

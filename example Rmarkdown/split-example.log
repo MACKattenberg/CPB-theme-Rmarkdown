@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.24)  19 OCT 2026 22:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.24)  19 OCT 2026 22:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1220,7 +1220,7 @@ Package caption Info: New subtype `subfigure' on input line 238.
 Package caption Info: New subtype `subtable' on input line 238.
 \c@subtable=\count398
 )
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 40
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 41
 .
 (C:\Users\markk\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
@@ -1232,24 +1232,24 @@ File: l3backend-pdftex.def 2026-07-20 L3 backend support: PDF output (pdfTeX)
 ) (split-example.aux)
 \openout1 = `split-example.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1310,7 +1310,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 40.
+Package hyperref Info: Link coloring OFF on input line 41.
 (split-example.out) (split-example.out)
 \@outlinefile=\write5
 \openout5 = `split-example.out'.
@@ -1347,12 +1347,12 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 (split-example.nav)
 Package babel Info: Main language set to 'english'.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 66.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 67.
 
 (C:\Users\markk\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 66.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 67.
 
 (C:\Users\markk\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1360,7 +1360,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <../Figures/SHAP2.png, id=14, 2180.145pt x 726.715pt>
 File: ../Figures/SHAP2.png Graphic file (type png)
 <use ../Figures/SHAP2.png>
-Package pdftex.def Info: ../Figures/SHAP2.png  used on input line 66.
+Package pdftex.def Info: ../Figures/SHAP2.png  used on input line 67.
 (pdftex.def)             Requested size: 191.18137pt x 63.72711pt.
 [1{C:/Users/markk/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/ma
 rkk/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
@@ -1371,6 +1371,11 @@ rkk/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 (split-example.vrb) [2
 
 ] [3
+
+]
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <8> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 107.
+[4
 
 ]
 \tf@nav=\write6
@@ -1391,21 +1396,22 @@ Package rerunfilecheck Info: File `split-example.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 40637 strings out of 467501
- 947095 string characters out of 5408550
- 1430084 words of memory out of 5000000
- 69098 multiletter control sequences out of 15000+600000
- 656410 words of font info for 77 fonts, out of 8000000 for 9000
+ 40831 strings out of 467501
+ 951393 string characters out of 5408550
+ 1434226 words of memory out of 5000000
+ 69286 multiletter control sequences out of 15000+600000
+ 662156 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,17n,131p,736b,852s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,17n,131p,736b,897s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\markk\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt
 1095.pk><C:/Users/markk/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmsy10.pfb><C:/Users/markk/AppData/Local/Programs/MiKTeX/fonts/type1/urw/
 helvetic/uhvb8a.pfb><C:/Users/markk/AppData/Local/Programs/MiKTeX/fonts/type1/u
-rw/helvetic/uhvr8a.pfb>
-Output written on split-example.pdf (3 pages, 1039261 bytes).
+rw/helvetic/uhvr8a.pfb><C:/Users/markk/AppData/Local/Programs/MiKTeX/fonts/type
+1/urw/helvetic/uhvro8a.pfb>
+Output written on split-example.pdf (4 pages, 1049046 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
- 10 named destinations out of 1000 (max. 500000)
+ 103 PDF objects out of 1000 (max. 8388607)
+ 13 named destinations out of 1000 (max. 500000)
  90 words of extra memory for PDF output out of 10000 (max. 10000000)
 

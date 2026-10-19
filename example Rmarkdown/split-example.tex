@@ -32,6 +32,7 @@
 \title[Two columns]{Two-column slides}
 \author{CPB}
 \disclaimer{}
+\eventtype{Event type}
 \date{\today}
 \cpbfooter{CPB}
 \cpbtitelafbeelding{} % Titel figuur
@@ -89,5 +90,19 @@
 \end{block}
 
 This text is outside the block.
+\end{frame}
+
+\begin{frame}{A diagram}
+\label{a-diagram}
+\begin{figure}
+\centering
+\resizebox{0.8\linewidth}{!}{%
+\cpbdiagram{blue}{3}{%
+\cpbdiagramitem{Box 1}{Text 1}{Caption 1}
+\cpbdiagramitem{Box 2}{Text 2}{Caption 2}
+\cpbdiagramitem{Box 3}{Text 3}{}
+}}
+\caption{Example of a blue diagram}
+\end{figure}
 \end{frame}
 \end{document}

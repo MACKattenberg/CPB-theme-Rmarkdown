@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.24)  19 OCT 2026 22:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.24)  19 OCT 2026 22:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1407,7 +1407,7 @@ Package pdftex.def Info: ../Figures/SHAP2.png  used on input line 114.
 
  <../Figures/SHAP2.png>]
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <8> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 166.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 144.
 [6
 
 ]
@@ -1418,23 +1418,23 @@ LaTeX Font Info:    Font shape `T1/phv/m/it' in size <8> not available
 ]
 File: ../Images/numbersbackground.png Graphic file (type png)
 <use ../Images/numbersbackground.png>
-Package pdftex.def Info: ../Images/numbersbackground.png  used on input line 19
-9.
+Package pdftex.def Info: ../Images/numbersbackground.png  used on input line 17
+7.
 (pdftex.def)             Requested size: 455.23724pt x 256.0748pt.
 [8
 
 ]
 File: ../Figures/SHAP2.png Graphic file (type png)
 <use ../Figures/SHAP2.png>
-Package pdftex.def Info: ../Figures/SHAP2.png  used on input line 221.
+Package pdftex.def Info: ../Figures/SHAP2.png  used on input line 199.
 (pdftex.def)             Requested size: 191.18137pt x 63.72711pt.
 [9
 
 ]
 File: ../Images/numbersbackground.png Graphic file (type png)
 <use ../Images/numbersbackground.png>
-Package pdftex.def Info: ../Images/numbersbackground.png  used on input line 22
-3.
+Package pdftex.def Info: ../Images/numbersbackground.png  used on input line 20
+1.
 (pdftex.def)             Requested size: 455.23724pt x 256.0748pt.
 [10
 
@@ -1448,11 +1448,11 @@ Package pdftex.def Info: ../Images/numbersbackground.png  used on input line 22
 ]
 File: ../Images/nummers_vol.png Graphic file (type png)
 <use ../Images/nummers_vol.png>
-Package pdftex.def Info: ../Images/nummers_vol.png  used on input line 259.
+Package pdftex.def Info: ../Images/nummers_vol.png  used on input line 237.
 (pdftex.def)             Requested size: 428.27556pt x 256.0748pt.
 File: ../Images/rijkslogo.png Graphic file (type png)
 <use ../Images/rijkslogo.png>
-Package pdftex.def Info: ../Images/rijkslogo.png  used on input line 259.
+Package pdftex.def Info: ../Images/rijkslogo.png  used on input line 237.
 (pdftex.def)             Requested size: 25.60063pt x 51.21504pt.
 [13
 
@@ -1483,8 +1483,8 @@ Package rerunfilecheck Info: File `rmarkdown-template.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  41225 strings out of 467501
- 959775 string characters out of 5408550
- 1448568 words of memory out of 5000000
+ 959801 string characters out of 5408550
+ 1448581 words of memory out of 5000000
  69607 multiletter control sequences out of 15000+600000
  701332 words of font info for 138 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1497,7 +1497,7 @@ amsfonts/cm/cmmi12.pfb><C:/Users/markk/AppData/Local/Programs/MiKTeX/fonts/type
 onts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/markk/AppData/Local/Programs/MiKTe
 X/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/markk/AppData/Local/Programs/Mi
 KTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on rmarkdown-template.pdf (15 pages, 1799349 bytes).
+Output written on rmarkdown-template.pdf (15 pages, 1799643 bytes).
 PDF statistics:
  282 PDF objects out of 1000 (max. 8388607)
  46 named destinations out of 1000 (max. 500000)

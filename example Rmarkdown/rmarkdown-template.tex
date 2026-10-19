@@ -113,56 +113,34 @@ Tijm's template}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Custom LaTeX diagrams}
-\label{custom-latex-diagrams}
+\begin{frame}{Custom Rmarkdown to LaTeX diagrams}
+\label{custom-rmarkdown-to-latex-diagrams}
 \vspace{1cm}
 
-  % Maximum 4 boxes
-  \begin{figure}
-    \centering
-    \resizebox{0.6\linewidth}{!}{%
-    \cpbdiagram{magenta}{4}{%
-      \cpbdiagramitem
-        {Box 1}
-        {Text 1}
-        {Caption 1}
-      \cpbdiagramitem
-        {Box 2}
-        {Text 2}
-        {Caption 2}
-      \cpbdiagramitem
-        {Box 3}
-        {Text 3}
-        {}
-      \cpbdiagramitem
-        {Box 4}
-        {Text 4}
-        {Caption 4}        
-    }}
-    \caption{Example of diagram made directly from the template}
-    \label{fig:example_diagram_magenta}
-  \end{figure}
+\begin{figure}
+\centering
+\resizebox{0.6\linewidth}{!}{%
+\cpbdiagram{magenta}{4}{%
+\cpbdiagramitem{Box 1}{Text 1}{Caption 1}
+\cpbdiagramitem{Box 2}{Text 2}{Caption 2}
+\cpbdiagramitem{Box 3}{Text 3}{}
+\cpbdiagramitem{Box 4}{Text 4}{Caption 4}
+}}
+\caption{Example of diagram made directly from the template}
+\label{fig:example_diagram_magenta}
+\end{figure}
 
-  \begin{figure}
-    \centering
-    \resizebox{0.6\linewidth}{!}{%
-    \cpbdiagram{blue}{3}{%
-      \cpbdiagramitem
-        {Box 1}
-        {Text 1}
-        {Caption 1}
-      \cpbdiagramitem
-        {Box 2}
-        {Text 2}
-        {Caption 2}
-      \cpbdiagramitem
-        {Box 3}
-        {Text 3}
-        {}      
-    }}
-    \caption{Example of a blue diagram made directly from the template}
-    \label{fig:example_diagram_blue}
-  \end{figure}
+\begin{figure}
+\centering
+\resizebox{0.6\linewidth}{!}{%
+\cpbdiagram{blue}{3}{%
+\cpbdiagramitem{Box 1}{Text 1}{Caption 1}
+\cpbdiagramitem{Box 2}{Text 2}{Caption 2}
+\cpbdiagramitem{Box 3}{Text 3}{}
+}}
+\caption{Example of a blue diagram made directly from the template}
+\label{fig:example_diagram_blue}
+\end{figure}
 \end{frame}
 
 \begin{frame}[fragile]{Slide with table}
