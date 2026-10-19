@@ -96,7 +96,7 @@ table, cross-references, and navigation buttons.
 > | Box 3 | Text 3 |           |
 > | Box 4 | Text 4 | Caption 4 |
 >
-> Example of diagram made directly from the template
+> Diagrams can be magenta or blue
 
 <!-- separate diagrams -->
 
@@ -108,8 +108,26 @@ table, cross-references, and navigation buttons.
 > | Box 2 | Text 2 | Caption 2 |
 > | Box 3 | Text 3 |           |
 >
-> Example of a blue diagram made directly from the template
+> Remove this line to remove the figure captions
 
+## You can combine diagrams and text/enumerations
+
+\vspace{1cm}
+
+> [!DIAGRAM] magenta {#fig:example_diagram_magenta}
+>
+> | Box   | Text   | Caption   |
+> |-------|--------|-----------|
+> | Box 1 | Text 1 | Caption 1 |
+> | Box 2 | Text 2 | Caption 2 |
+> | Box 3 | Text 3 |           |
+> | Box 4 | Text 4 | Caption 4 |
+
+
+- This diagram has no Figure caption
+  - It is magenta
+  - But it can easily be blue
+  
 ## Slide with table {.fragile}
 
 \scriptsize

@@ -126,7 +126,7 @@ Tijm's template}
 \cpbdiagramitem{Box 3}{Text 3}{}
 \cpbdiagramitem{Box 4}{Text 4}{Caption 4}
 }}
-\caption{Example of diagram made directly from the template}
+\caption{Diagrams can be magenta or blue}
 \label{fig:example_diagram_magenta}
 \end{figure}
 
@@ -138,9 +138,38 @@ Tijm's template}
 \cpbdiagramitem{Box 2}{Text 2}{Caption 2}
 \cpbdiagramitem{Box 3}{Text 3}{}
 }}
-\caption{Example of a blue diagram made directly from the template}
+\caption{Remove this line to remove the figure captions}
 \label{fig:example_diagram_blue}
 \end{figure}
+\end{frame}
+
+\begin{frame}{You can combine diagrams and text/enumerations}
+\label{you-can-combine-diagrams-and-textenumerations}
+\vspace{1cm}
+
+\begin{figure}
+\centering
+\resizebox{0.6\linewidth}{!}{%
+\cpbdiagram{magenta}{4}{%
+\cpbdiagramitem{Box 1}{Text 1}{Caption 1}
+\cpbdiagramitem{Box 2}{Text 2}{Caption 2}
+\cpbdiagramitem{Box 3}{Text 3}{}
+\cpbdiagramitem{Box 4}{Text 4}{Caption 4}
+}}
+\label{fig:example_diagram_magenta}
+\end{figure}
+\begin{itemize}
+\tightlist
+\item
+  This diagram has no Figure caption
+  \begin{itemize}
+  \tightlist
+  \item
+    It is magenta
+  \item
+    But it can easily be blue
+  \end{itemize}
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Slide with table}
