@@ -3,11 +3,13 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\graphicspath{{../}}
+% Resolve Images/, Figures/, Tables/ and cpb-beamer.sty from the repository root,
+% whether the Rmd sits in rmarkdown/ or in rmarkdown/examples/.
+\graphicspath{{../}{../../}}
 \makeatletter
-\def\input@path{{../}}
+\def\input@path{{../}{../../}}
 \makeatother
-\usepackage{cpb-beamer} % Reuse the original CPB style from the parent folder.
+\usepackage{cpb-beamer} % Reuse the CPB style from the repository root.
 \usepackage[dutch,english]{babel}  % Gebruik [english, dutch]{babel} voor nederlandse datumnotatie
 \usepackage{booktabs}
 \usepackage{colortbl}

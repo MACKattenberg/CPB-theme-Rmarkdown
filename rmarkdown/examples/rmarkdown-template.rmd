@@ -10,21 +10,22 @@ cover: '`Images/nummers_vol.png`{=latex}' #change to fancy cover using: '`Images
 output:
   beamer_presentation:
     latex_engine: pdflatex
-    template: cpb-rmarkdown-template.tex
+    template: ../cpb-rmarkdown-template.tex
     keep_tex: true
     citation_package: natbib
     md_extensions: -implicit_figures
-    pandoc_args: ["--to=latex", "--lua-filter=cpb-diagrams.lua", "--lua-filter=cpb-blocks.lua", "--lua-filter=cpb-split.lua", "--lua-filter=cpb-slides.lua"]
+    pandoc_args: ["--to=latex", "--lua-filter=../cpb-diagrams.lua", "--lua-filter=../cpb-blocks.lua", "--lua-filter=../cpb-split.lua", "--lua-filter=../cpb-slides.lua"]
 ---
 
 <!--
 Knit in RStudio or run from the repository root:
-rmarkdown::render("example Rmarkdown/rmarkdown-template.rmd")
+rmarkdown::render("rmarkdown/examples/rmarkdown-template.rmd")
 
 Write a new slide with ## Title, and lists with - items (indent subitems
 by four spaces). Use **bold**, *italic*, math, images, and R chunks normally.
-The companion template and Lua filter reuse ../cpb-beamer.sty and preserve
-its layouts. Keep both companion files beside this Rmd.
+The template and Lua filters in ../ (rmarkdown/) reuse cpb-beamer.sty from the
+repository root. If you copy this Rmd elsewhere, adjust the template and
+--lua-filter paths in the YAML header.
 
 Special heading attributes:
   {.split}: two columns; put the right-column divider on its own line.
@@ -81,7 +82,7 @@ table, cross-references, and navigation buttons.
     - Reference by using Figure \ref{fig:example_figure}
     - If the figures and tables order change, the numbers are automatically updated.
 
-![Example of a Figure](../Figures/SHAP2.png){#fig:example_figure .cpb-figure scale="0.12"}
+![Example of a Figure](../../Figures/SHAP2.png){#fig:example_figure .cpb-figure scale="0.12"}
 
 ## Custom Rmarkdown to LaTeX diagrams
 
@@ -165,7 +166,7 @@ table, cross-references, and navigation buttons.
 
 <!-- right -->
 
-![](../Figures/SHAP2.png)
+![](../../Figures/SHAP2.png)
 
 ## Another section {layout="section" subtitle="Subtext"}
 
@@ -200,4 +201,4 @@ table, cross-references, and navigation buttons.
 ## Bibliography {.noframenumbering allowframebreaks="0.75"}
 
 \bibliographystyle{agsm}
-\bibliography{../references}
+\bibliography{../../references}
